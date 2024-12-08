@@ -1,4 +1,6 @@
 import copy
+import sys
+import unittest
 
 
 class Dec2:
@@ -48,22 +50,9 @@ class Dec2:
         return num_safe
 
 
-
-
-
-#------------------------------------------------------
-import unittest
-
-class TestDec1(unittest.TestCase):
-    EXAMPLE_INPUT = """
-    """
-    def test_example1(self):
-        output = Dec1(self.EXAMPLE_INPUT).solve1()
-        self.assertEqual(output, 11)
-
-    def test_example2(self):
-        output = Dec1(self.EXAMPLE_INPUT).solve2()
-        self.assertEqual(output, 31)
+# ****************************************************************************
+# Unittests
+# ****************************************************************************
 
 
 class TestDec2(unittest.TestCase):
@@ -76,6 +65,9 @@ class TestDec2(unittest.TestCase):
         1 3 6 7 9
     """
     EXAMPLE_INPUT2 = '7 6 4 2 1'
+    def print(self, output):
+        print(output, end=' ')
+        sys.stdout.flush()
     def test_example1(self):
         output = Dec2(self.EXAMPLE_INPUT).solve1()
         self.assertEqual(output, 2)
@@ -83,20 +75,22 @@ class TestDec2(unittest.TestCase):
         output = Dec2(self.EXAMPLE_INPUT2).solve1()
         self.assertEqual(output, 1)
 
-    def test_read1(self):
+    def test_solution1(self):
         with open('dec2.txt') as f:
             input = f.read()
         output = Dec2(input).solve1()
-        print(output)
+        self.print(output)
+        self.assertEqual(output, 282)
 
     def test_example2(self):
         output = Dec2(self.EXAMPLE_INPUT).solve2()
         self.assertEqual(output, 4)
-    def test_read2(self):
+    def test_solution2(self):
         with open('dec2.txt') as f:
             input = f.read()
         output = Dec2(input).solve2()
-        print(output)
+        self.print(output)
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
