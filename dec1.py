@@ -1,4 +1,7 @@
-class Dec1a:
+import unittest
+import sys
+
+class Dec1:
     def parse_list(self, input):
         self.list1 = []
         self.list2 = []
@@ -32,8 +35,11 @@ class Dec1a:
         self.parse_list(input)
         return self.calc_similarity()
 
-#--------------------
-import unittest
+
+# ****************************************************************************
+# Unittests
+# ****************************************************************************
+
 
 class Test(unittest.TestCase):
     EXAMPLE_INPUT = """
@@ -45,23 +51,26 @@ class Test(unittest.TestCase):
     3   3
     """
 
-    def test_dec1a(self):
-        output = Dec1a().solve1(self.EXAMPLE_INPUT)
+    def print(self, output):
+        print(output, end=' ')
+        sys.stdout.flush()
+    def test_example1(self):
+        output = Dec1().solve1(self.EXAMPLE_INPUT)
         self.assertEqual(output, 11)
-    def test_dec1a_solution(self):
-        with open('dec1a.txt', 'r') as f:
+    def test_solution1(self):
+        with open('dec1.txt', 'r') as f:
             input = f.read()
-            output = Dec1a().solve1(input)
-            print(output)
-    def test_dec1b(self):
-        output = Dec1a().solve2(self.EXAMPLE_INPUT)
+            output = Dec1().solve1(input)
+            self.print(output)
+    def test_example2(self):
+        output = Dec1().solve2(self.EXAMPLE_INPUT)
         self.assertEqual(output, 31)
-    def test_dec1b_solution(self):
-        with open('dec1a.txt', 'r') as f:
+    def test_solution2(self):
+        with open('dec1.txt', 'r') as f:
             input = f.read()
-            output = Dec1a().solve2(input)
-            print(output)
+            output = Dec1().solve2(input)
+            self.print(output)
 
 
-
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
