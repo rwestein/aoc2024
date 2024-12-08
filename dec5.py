@@ -1,7 +1,6 @@
 import unittest
-from unittest import skip
-import re
 import functools
+import sys
 
 
 class Dec5:
@@ -92,6 +91,10 @@ class Test(unittest.TestCase):
     61,13,29
     97,13,75,29,47
     """
+    @staticmethod
+    def print(output):
+        print(output, end=' ')
+        sys.stdout.flush()
 
     def test_example1(self):
         output = Dec5().solve1(self.EXAMPLE_INPUT)
@@ -100,7 +103,7 @@ class Test(unittest.TestCase):
         with open('dec5.txt', 'r') as f:
             input = f.read()
             output = Dec5().solve1(input)
-            print(output)
+            self.print(output)
     def test_example2(self):
         output = Dec5().solve2(self.EXAMPLE_INPUT)
         self.assertEqual(output, 123)
@@ -108,7 +111,8 @@ class Test(unittest.TestCase):
         with open('dec5.txt', 'r') as f:
             input = f.read()
             output = Dec5().solve2(input)
-            print(output)
+            self.print(output)
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()

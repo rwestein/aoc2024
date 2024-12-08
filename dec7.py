@@ -86,6 +86,11 @@ class Test(unittest.TestCase):
     def setUp(self):
         self.solver = Dec7()
 
+    @staticmethod
+    def print(output):
+        print(output, end=' ')
+        sys.stdout.flush()
+
     def test_example1(self):
         output = self.solver.solve1(self.EXAMPLE_INPUT)
         self.assertEqual(output, 3749)
@@ -93,7 +98,7 @@ class Test(unittest.TestCase):
     def test_solution1(self):
         with open('dec7.txt', 'r') as f:
             output = self.solver.solve1(f.read())
-            print(output)
+            self.print(output)
             self.assertEqual(output, 1708857123053)
 
     def test_possibilities2(self):
@@ -111,8 +116,9 @@ class Test(unittest.TestCase):
     def test_solution2(self):
         with open('dec7.txt', 'r') as f:
             output = self.solver.solve2(f.read())
-            print(output)
+            self.print(output)
             self.assertEqual(output, 189207836795655)
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()

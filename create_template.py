@@ -61,7 +61,8 @@ class TestDec{day}(unittest.TestCase):
     #         self.assertEqual(output, 0)
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
 """
 
 py_file = f'dec{day}.py'

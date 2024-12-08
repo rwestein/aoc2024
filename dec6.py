@@ -278,10 +278,11 @@ class Test(unittest.TestCase):
             self.assertEqual(output, 1655)     # Correct answer
             self.assertNotEqual(output, 1652)  # Wrong answer (4th time)
 
-    def test_analyze(self):
+    def _test_analyze(self):
         with open('dec6.txt', 'r') as f:
             output = self.solver.analyze_two_positions(f.read())
-            self.print(output)
+            # self.print(output)
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()

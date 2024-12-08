@@ -1,5 +1,7 @@
 import unittest
 import re
+import sys
+
 
 class Dec3:
     def __init__(self, input):
@@ -40,14 +42,20 @@ class Dec3:
         #     total += x * y
         return total
 
-#
-# ------------------------------------------------------
-#
+
+# ****************************************************************************
+# Unittests
+# ****************************************************************************
 
 
 class TestDec3(unittest.TestCase):
     EXAMPLE_INPUT = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))"
     EXAMPLE_INPUT2 = "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))"
+    @staticmethod
+    def print(output):
+        print(output, end=' ')
+        sys.stdout.flush()
+
     def test_example1(self):
         output = Dec3(self.EXAMPLE_INPUT).solve1()
         self.assertEqual(output, 161)
@@ -56,7 +64,7 @@ class TestDec3(unittest.TestCase):
         with open('dec3.txt') as f:
             input = f.read()
         output = Dec3(input).solve1()
-        print(output)
+        self.print(output)
 
     def test_example2(self):
         output = Dec3(self.EXAMPLE_INPUT2).solve2()
@@ -66,6 +74,8 @@ class TestDec3(unittest.TestCase):
         with open('dec3.txt') as f:
             input = f.read()
         output = Dec3(input).solve2()
-        print(output)
+        self.print(output)
 
-unittest.main()
+
+if __name__ == '__main__':
+    unittest.main()

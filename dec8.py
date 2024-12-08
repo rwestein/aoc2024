@@ -94,4 +94,5 @@ class TestDec8(unittest.TestCase):
             self.assertEqual(output, 1293)
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()

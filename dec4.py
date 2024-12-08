@@ -1,6 +1,7 @@
 import unittest
-from unittest import skip
 import re
+import sys
+
 
 class Dec4:
     def parse_input(self, input):
@@ -84,6 +85,11 @@ class Test(unittest.TestCase):
     MAMMMXMMMM
     MXMXAXMASX
     """
+    @staticmethod
+    def print(output):
+        print(output, end=' ')
+        sys.stdout.flush()
+
     def test_diag_lines(self):
         dec = Dec4()
         lines =  dec.parse_input(self.EXAMPLE_INPUT)
@@ -98,7 +104,7 @@ class Test(unittest.TestCase):
         with open('dec4.txt', 'r') as f:
             input = f.read()
             output = Dec4().solve1(input)
-            print(output)
+            self.print(output)
     def test_example2(self):
         output = Dec4().solve2(self.EXAMPLE_INPUT)
         self.assertEqual(output, 9)
@@ -106,7 +112,8 @@ class Test(unittest.TestCase):
         with open('dec4.txt', 'r') as f:
             input = f.read()
             output = Dec4().solve2(input)
-            print(output)
+            self.print(output)
 
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
