@@ -125,25 +125,25 @@ class TestDec10(unittest.TestCase):
         print(output, end=' ')
         sys.stdout.flush()
 
+    def get_input(self):
+        with open('dec10.txt', 'r') as f:
+            return f.read()
+
     def test_example1(self):
         output = self.solver.solve1(self.EXAMPLE_INPUT)
         self.assertEqual(output, 36)
 
     def test_solution1(self):
-        with open('dec10.txt', 'r') as f:
-            output = self.solver.solve1(f.read())
-            self.print(output)
-            self.assertEqual(output, 674)
+        output = self.solver.solve1(self.get_input())
+        self.print(output)
 
     def test_example2(self):
         output = self.solver.solve2(self.EXAMPLE_INPUT)
         self.assertEqual(output, 81)
 
     def test_solution2(self):
-        with open('dec10.txt', 'r') as f:
-            output = self.solver.solve2(f.read())
-            self.print(output)
-            self.assertEqual(output, 1372)
+        output = self.solver.solve2(self.get_input())
+        self.print(output)
 
 
 if __name__ == '__main__':

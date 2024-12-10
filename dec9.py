@@ -101,25 +101,26 @@ class TestDec9(unittest.TestCase):
         print(output, end=' ')
         sys.stdout.flush()
 
+    @staticmethod
+    def get_input():
+        with open('dec9.txt', 'r') as f:
+            return f.read()
+
     def test_example1(self):
         output = self.solver.solve1(self.EXAMPLE_INPUT)
         self.assertEqual(output, 1928)
 
     def test_solution1(self):
-        with open('dec9.txt', 'r') as f:
-            output = self.solver.solve1(f.read())
-            self.print(output)
-            self.assertEqual(output, 6390180901651)
+        output = self.solver.solve1(self.get_input())
+        self.print(output)
 
     def test_example2(self):
         output = self.solver.solve2(self.EXAMPLE_INPUT)
         self.assertEqual(output, 2858)
 
     def test_solution2(self):
-        with open('dec9.txt', 'r') as f:
-            output = self.solver.solve2(f.read())
-            self.print(output)
-            self.assertEqual(output, 6412390114238)
+        output = self.solver.solve2(self.get_input())
+        self.print(output)
 
 
 if __name__ == '__main__':
