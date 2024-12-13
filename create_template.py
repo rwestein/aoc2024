@@ -37,10 +37,12 @@ class TestDec{day}(unittest.TestCase):
     def setUp(self):
         self.solver = Dec{day}()
 
-    @staticmethod
-    def print(output):
-        print(output, end=' ')
-        sys.stdout.flush()
+    def print(self, output):
+        if '-v' in sys.argv:
+            print(output, end=' ')
+            sys.stdout.flush()
+        else:
+            print(f'{{self.id()}} = {{output}}')
 
     @staticmethod
     def get_input():

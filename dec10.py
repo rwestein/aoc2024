@@ -120,10 +120,12 @@ class TestDec10(unittest.TestCase):
     def setUp(self):
         self.solver = Dec10()
 
-    @staticmethod
-    def print(output):
-        print(output, end=' ')
-        sys.stdout.flush()
+    def print(self, output):
+        if '-v' in sys.argv:
+            print(output, end=' ')
+            sys.stdout.flush()
+        else:
+            print(f'{self.id()} = {output}')
 
     def get_input(self):
         with open('dec10.txt', 'r') as f:
