@@ -1,8 +1,13 @@
 import datetime
 import os
 import requests
+import argparse
 
-day = datetime.date.today().day
+parser = argparse.ArgumentParser()
+parser.add_argument('day', nargs='?', default=datetime.date.today().day)
+args = parser.parse_args()
+
+day = args.day
 year = datetime.date.today().year
 
 TEMPLATE = f"""import unittest
@@ -11,18 +16,17 @@ import sys
 
 class Dec{day}:
     def parse_input(self, inp):
-        matrix = []
+        self.matrix = []
         for line_ in inp.strip().splitlines():
             if line_.strip():
-                matrix.append(line_.strip())
-        return matrix
+                self.matrix.append(line_.strip())
 
     def solve1(self, inp):
-        matrix = self.parse_input(inp)
+        self.parse_input(inp)
         return 0
 
     def solve2(self, inp):
-        matrix = self.parse_input(inp)
+        self.parse_input(inp)
         return 0
 
 
