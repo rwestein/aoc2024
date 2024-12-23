@@ -15,6 +15,8 @@ import sys
 
 
 class Dec{day}:
+    verbose = True
+    
     def parse_input(self, inp):
         self.matrix = []
         for line_ in inp.strip().splitlines():
@@ -40,6 +42,7 @@ class TestDec{day}(unittest.TestCase):
 
     def setUp(self):
         self.solver = Dec{day}()
+        self.solver.verbose = '-v' in sys.argv
 
     def print(self, output):
         if '-v' in sys.argv:
