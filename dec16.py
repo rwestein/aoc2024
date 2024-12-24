@@ -221,7 +221,7 @@ class TestDec16(unittest.TestCase):
         output = self.solver.solve1(self.EXAMPLE_INPUT2)
         self.assertEqual(output, 11048)
 
-    def _test_solution1(self):
+    def test_solution1(self):
         output = self.solver.solve1(self.get_input())
         self.print(output)
         self.assertLess(output, 91440)
